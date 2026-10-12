@@ -2,8 +2,8 @@
 
 🇩🇪 [Deutsche Anleitung](README.de.md)
 
-Play the **Cube World Omega** beta on Linux. You need beta access and the Wollay launcher
-from [wollay.com](https://wollay.com).
+Play the **Cube World Omega** beta on Linux. You need beta access, the Wollay launcher
+from [wollay.com](https://wollay.com) and **git** (not installed? see [Problems](#problems)).
 
 *Unofficial, not made by Wollay.*
 
@@ -34,8 +34,9 @@ wollay.com in your browser and sign in again.
 
 - **Launcher window is very small** (big/4K screen): run
   `~/Games/cubeworld-omega-linux/install.sh --dpi 192`
-- **"git: command not found"**: install git (e.g. `sudo apt install git`, `sudo pacman -S git`
-  or `sudo dnf install git`) and try step 2 again.
+- **"git: command not found"**: install git (Ubuntu/Debian/Mint: `sudo apt install git`,
+  Arch/CachyOS/Manjaro: `sudo pacman -S git`, Fedora: `sudo dnf install git`,
+  openSUSE: `sudo zypper install git`) and try step 2 again.
 - **Anything else**: right-click **Cube World Omega** in your app menu and choose
   **Create bug report** (or run `~/Games/cubeworld-omega-linux/report.sh`). This saves a file in
   your Downloads folder, without your login data.
