@@ -34,10 +34,11 @@ cleanup() {
 }
 trap cleanup EXIT
 
-# Don't set WINEDEBUG here: with Wine's error messages on, the game's sign-in
-# through the launcher failed twice ("GAME SIGN-IN FAILED. CHECK THE LAUNCHER.").
-# Not confirmed, it may have been a server problem.
-[ "$CWO_DEBUG" = 1 ] && export CWO_VK_SWAPFIX_DEBUG=1
+if [ "$CWO_DEBUG" = 1 ]; then
+    # Proton silences Wine completely by default; keep its error messages.
+    export WINEDEBUG="${WINEDEBUG:-+timestamp,+pid,fixme-all}"
+    export CWO_VK_SWAPFIX_DEBUG=1
+fi
 
 if [ "${CWO_PROXY:-1}" = 1 ]; then
     find_mitmdump || die "mitmdump not found, run install.sh first (or start with CWO_PROXY=0)"

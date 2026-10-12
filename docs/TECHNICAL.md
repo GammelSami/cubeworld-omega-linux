@@ -26,11 +26,8 @@ Settings (environment variables): `CWO_HOME` (default `~/Games/CubeWorldOmega`),
 Logs: one folder per start in `$CWO_HOME/logs/` (the newest 10 are kept) with `launcher.log`
 (Wine/Proton output), `proxy.log`, `system.txt` and `client.log` (the game's own log, copied when
 the launcher exits). `$CWO_HOME/launcher.log` and `proxy.log` point to the newest ones. During the
-beta `CWO_DEBUG=1` is the default: the colour fix's messages are logged (`CWO_VK_SWAPFIX_DEBUG=1`).
-Wine's own messages stay off (Proton's default). With `WINEDEBUG=+timestamp,+pid,fixme-all` the
-game failed to sign in twice ("GAME SIGN-IN FAILED. CHECK THE LAUNCHER."); without it, it worked.
-That may have been a coincidence (a server problem). For a debug run, add `export WINEDEBUG=...` to
-`$CWO_HOME/env`.
+beta `CWO_DEBUG=1` is the default: Wine's error messages (Proton turns them off) and the colour
+fix's messages are logged (`WINEDEBUG=+timestamp,+pid,fixme-all`, `CWO_VK_SWAPFIX_DEBUG=1`).
 
 ## Problems and workarounds
 
