@@ -54,7 +54,9 @@ in `~/Games/CubeWorldOmega` and fixes three things that don't work under Wine:
   Only connections to wollay.com and the Google sign-in services it uses go through it. For this, a private certificate is
   trusted **only inside the game's Wine folder**, not by your system or browser.
 - **Red and blue are swapped in game.** A small Vulkan layer fixes the colours. It is only
-  active for this game.
+  active for this game. Without it, the game looks like this:
+
+  ![Cube World Omega under Wine without the fix: orange sky, bright green grass](docs/swapped-colours.jpg)
 - **The launcher sometimes crashes on start.** It is restarted automatically.
 
 Details for nerds: [docs/TECHNICAL.md](docs/TECHNICAL.md)
