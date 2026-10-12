@@ -1,9 +1,11 @@
 # Cube World Omega on Linux
 
+🇩🇪 [Deutsche Anleitung](README.de.md)
+
 Play the **Cube World Omega** beta on Linux. You need beta access and the Wollay launcher
 from [wollay.com](https://wollay.com).
 
-*Unofficial, not made by Wollay.* [Deutsche Anleitung](README.de.md)
+*Unofficial, not made by Wollay.*
 
 ## Install
 
