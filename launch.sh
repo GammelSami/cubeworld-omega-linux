@@ -14,7 +14,9 @@ if pgrep -f 'wollay-launcher\.exe' >/dev/null; then
     exit 0
 fi
 
-"$REPO/scripts/menu-entry.sh" || true
+# Refresh the menu entry if it belongs to this copy of the scripts.
+grep -qF "$REPO/launch.sh" "${XDG_DATA_HOME:-$HOME/.local/share}/applications/cubeworld-omega.desktop" 2>/dev/null &&
+    { "$REPO/scripts/menu-entry.sh" || true; }
 
 # Every start gets its own log folder; report.sh bundles the newest ones.
 SESSION="$CWO_LOGS/$(date +%Y-%m-%d_%H-%M-%S)"
