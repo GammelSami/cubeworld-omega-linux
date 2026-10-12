@@ -45,7 +45,7 @@ wollay.com und melde dich noch einmal an.
 ## Aktualisieren oder deinstallieren
 
 **Aktualisieren:** Wenn es hier neue Fixes gibt, klicke im App-Menü mit der rechten Maustaste
-auf **Cube World Omega** und wähle **Linux-Fixes aktualisieren**. Oder füge das in ein Terminal
+auf **Cube World Omega** und wähle **Linux-Wrapper aktualisieren**. Oder füge das in ein Terminal
 ein und drücke **Enter** (das Spiel selbst aktualisiert sich im Launcher):
 
 ```sh

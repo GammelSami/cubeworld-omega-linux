@@ -20,8 +20,8 @@ StartupWMClass=wollay-launcher.exe
 Actions=update;report;
 
 [Desktop Action update]
-Name=Update Linux fixes
-Name[de]=Linux-Fixes aktualisieren
+Name=Update Linux wrapper
+Name[de]=Linux-Wrapper aktualisieren
 Exec=env CWO_HOME="$CWO_HOME" "$REPO/update.sh"
 
 [Desktop Action report]

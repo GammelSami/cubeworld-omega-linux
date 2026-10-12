@@ -45,7 +45,7 @@ wollay.com in your browser and sign in again.
 ## Update or uninstall
 
 **Update:** when there are new fixes here, right-click **Cube World Omega** in your app menu
-and choose **Update Linux fixes**. Or paste this into a terminal and press **Enter**
+and choose **Update Linux wrapper**. Or paste this into a terminal and press **Enter**
 (the game itself updates in the launcher):
 
 ```sh
