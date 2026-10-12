@@ -20,6 +20,8 @@ The first time takes a few minutes. Just wait.
 
 **3.** The launcher opens. **Sign in.** The game downloads by itself.
 Then press **Play**.
+If the sign-in in your browser doesn't get back to the launcher, delete the cookies for
+wollay.com in your browser and sign in again.
 
 **Done!** Next time, start **Cube World Omega** from your app menu.
 

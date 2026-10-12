@@ -33,3 +33,4 @@ Logs: `$CWO_HOME/launcher.log`, `$CWO_HOME/proxy.log`.
 | WebView2 content is blank under Wine's native Wayland driver. | `PROTON_ENABLE_WAYLAND=0` (XWayland) |
 | Launcher is tiny on HiDPI screens (Wine reports 96 DPI). | `install.sh --dpi 192` sets `LogPixels`. |
 | Upstream Wine (not Proton) leaves the launcher blank (no DirectComposition). | Use Proton / GE-Proton (default). |
+| The mouse cursor stays a resize arrow inside the launcher window (borderless window; the cursor of the WebView2 content, which belongs to another process, is not applied). | Not fixed. Doesn't affect clicking or the game. |

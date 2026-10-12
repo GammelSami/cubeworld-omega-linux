@@ -20,6 +20,8 @@ Beim ersten Mal dauert das ein paar Minuten. Einfach warten.
 
 **3.** Der Launcher öffnet sich. **Melde dich an.** Das Spiel lädt sich von selbst herunter.
 Dann auf **Play** klicken.
+Kommt die Anmeldung im Browser nicht im Launcher an, lösche im Browser die Cookies von
+wollay.com und melde dich noch einmal an.
 
 **Fertig!** Ab jetzt startest du **Cube World Omega** über dein App-Menü.
 
