@@ -8,7 +8,7 @@ from [wollay.com](https://wollay.com).
 ## Install
 
 **1.** Download the launcher (`Wollay-Launcher-…-Setup.exe`) from wollay.com.
-Leave it in your **Downloads** folder.
+Leave it in your **Downloads** folder (if it's somewhere else, the installer will ask you for it).
 
 **2.** Open a **terminal**, paste this line and press **Enter**:
 
@@ -28,9 +28,6 @@ Then press **Play**.
 
 ## Problems?
 
-- **"Setup.exe was not found"** (the launcher is not in your Downloads folder): type
-  `~/Games/cubeworld-omega-linux/install.sh ` (with a space at the end), drag the
-  `Wollay-Launcher-…-Setup.exe` file into the terminal window and press **Enter**.
 - **Launcher window is very small** (big/4K screen): run
   `~/Games/cubeworld-omega-linux/install.sh --dpi 192`
 - **"git: command not found"**: install git (e.g. `sudo apt install git`, `sudo pacman -S git`

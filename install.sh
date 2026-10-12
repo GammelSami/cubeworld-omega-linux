@@ -30,16 +30,45 @@ while [ $# -gt 0 ]; do
     shift
 done
 
+# Turn a dragged-and-dropped or typed path into a plain one ('...', "...", file://..., "\ ").
+clean_path() {
+    local p="$1"
+    p="${p#"${p%%[![:space:]]*}"}"
+    p="${p%"${p##*[![:space:]]}"}"
+    case "$p" in \'*\') p="${p:1:${#p}-2}" ;; \"*\") p="${p:1:${#p}-2}" ;; esac
+    case "$p" in file://*) p="$(printf '%b' "$(echo "${p#file://}" | sed 's/%/\\x/g')")" ;; esac
+    case "$p" in *\\*) p="$(printf '%s' "$p" | sed 's/\\\(.\)/\1/g')" ;; esac
+    case "$p" in "~/"*) p="$HOME/${p#\~/}" ;; esac
+    printf '%s' "$p"
+}
+
+ask_setup() {
+    echo
+    echo "I could not find the launcher setup (Wollay-Launcher-...-Setup.exe) in your Downloads folder."
+    if command -v zenity >/dev/null 2>&1 || command -v kdialog >/dev/null 2>&1; then
+        echo "Please choose the file in the window that opens."
+        if command -v kdialog >/dev/null 2>&1; then
+            SETUP="$(kdialog --title "Choose Wollay-Launcher-...-Setup.exe" --getopenfilename "$HOME" "*.exe" 2>/dev/null || true)"
+        else
+            SETUP="$(zenity --file-selection --title="Choose Wollay-Launcher-...-Setup.exe" --file-filter="*.exe" 2>/dev/null || true)"
+        fi
+        [ -f "$SETUP" ] && return
+    fi
+    [ -t 0 ] || die "run again with the path to the setup file: $0 /path/to/Wollay-Launcher-...-Setup.exe"
+    while true; do
+        echo "Drag the file into this window (or type where it is) and press Enter:"
+        read -r answer || exit 1
+        SETUP="$(clean_path "$answer")"
+        [ -n "$SETUP" ] || exit 1
+        [ -f "$SETUP" ] && return
+        echo "That file does not exist: $SETUP"
+    done
+}
+
 if [ -z "$SETUP" ]; then
     DL="$(xdg-user-dir DOWNLOAD 2>/dev/null || echo "$HOME/Downloads")"
     SETUP="$(ls -t "$DL"/Wollay-Launcher-*Setup*.exe "$HOME"/Downloads/Wollay-Launcher-*Setup*.exe "$REPO"/Wollay-Launcher-*Setup*.exe 2>/dev/null | head -1 || true)"
-    if [ -z "$SETUP" ]; then
-        echo "The launcher setup (Wollay-Launcher-...-Setup.exe) was not found in $DL." >&2
-        echo "Run this again with the path to the file, for example:" >&2
-        echo "  $0 ~/Desktop/Wollay-Launcher-0.4.8-Setup.exe" >&2
-        echo "Tip: type the command and a space, then drag the file into the terminal window." >&2
-        exit 1
-    fi
+    [ -n "$SETUP" ] || ask_setup
 fi
 [ -f "$SETUP" ] || die "file not found: $SETUP"
 echo "==> Using $SETUP"
