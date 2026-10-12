@@ -34,9 +34,11 @@ wollay.com in your browser and sign in again.
 
 - **Launcher window is very small** (big/4K screen): run
   `~/Games/cubeworld-omega-linux/install.sh --dpi 192`
-- **"git: command not found"**: install git (Ubuntu/Debian/Mint: `sudo apt install git`,
-  Arch/CachyOS/Manjaro: `sudo pacman -S git`, Fedora: `sudo dnf install git`,
-  openSUSE: `sudo zypper install git`) and try step 2 again.
+- **"git: command not found"**: install git and try step 2 again:
+  - Ubuntu, Debian, Mint: `sudo apt install git`
+  - Arch, CachyOS, Manjaro: `sudo pacman -S git`
+  - Fedora: `sudo dnf install git`
+  - openSUSE: `sudo zypper install git`
 - **Anything else**: right-click **Cube World Omega** in your app menu and choose
   **Create bug report** (or run `~/Games/cubeworld-omega-linux/report.sh`). This saves a file in
   your Downloads folder, without your login data.
