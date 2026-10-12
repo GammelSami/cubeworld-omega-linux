@@ -33,9 +33,15 @@ done
 if [ -z "$SETUP" ]; then
     DL="$(xdg-user-dir DOWNLOAD 2>/dev/null || echo "$HOME/Downloads")"
     SETUP="$(ls -t "$DL"/Wollay-Launcher-*Setup*.exe "$HOME"/Downloads/Wollay-Launcher-*Setup*.exe "$REPO"/Wollay-Launcher-*Setup*.exe 2>/dev/null | head -1 || true)"
-    [ -n "$SETUP" ] || die "Wollay-Launcher-...-Setup.exe not found. Download it from wollay.com into your Downloads folder and run this again."
+    if [ -z "$SETUP" ]; then
+        echo "The launcher setup (Wollay-Launcher-...-Setup.exe) was not found in $DL." >&2
+        echo "Run this again with the path to the file, for example:" >&2
+        echo "  $0 ~/Desktop/Wollay-Launcher-0.4.8-Setup.exe" >&2
+        echo "Tip: type the command and a space, then drag the file into the terminal window." >&2
+        exit 1
+    fi
 fi
-[ -f "$SETUP" ] || die "$SETUP not found"
+[ -f "$SETUP" ] || die "file not found: $SETUP"
 echo "==> Using $SETUP"
 
 "$REPO/scripts/install-deps.sh"

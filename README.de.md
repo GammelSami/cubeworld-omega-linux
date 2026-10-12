@@ -13,7 +13,7 @@ Lass ihn im Ordner **Downloads** liegen.
 **2.** Öffne ein **Terminal**, füge diese Zeile ein und drücke **Enter**:
 
 ```sh
-git clone https://github.com/GammelSami/cubeworld-omega-linux ~/cubeworld-omega-linux && ~/cubeworld-omega-linux/install.sh
+git clone https://github.com/GammelSami/cubeworld-omega-linux ~/Games/cubeworld-omega-linux && ~/Games/cubeworld-omega-linux/install.sh
 ```
 
 Beim ersten Mal dauert das ein paar Minuten. Einfach warten.
@@ -23,12 +23,16 @@ Dann auf **Play** klicken.
 
 **Fertig!** Ab jetzt startest du **Cube World Omega** über dein App-Menü.
 
-> Verschiebe oder lösche den Ordner `cubeworld-omega-linux` in deinem Home-Ordner nicht. Das Spiel braucht ihn.
+> Die Skripte landen in `Games/cubeworld-omega-linux` in deinem Home-Ordner, das Spiel in
+> `Games/CubeWorldOmega`. Verschiebe oder lösche diese Ordner nicht. Das Spiel braucht sie.
 
 ## Probleme?
 
+- **„Setup.exe was not found“** (der Launcher liegt nicht im Downloads-Ordner): tippe
+  `~/Games/cubeworld-omega-linux/install.sh ` (mit Leerzeichen am Ende), zieh die Datei
+  `Wollay-Launcher-…-Setup.exe` ins Terminal-Fenster und drücke **Enter**.
 - **Launcher-Fenster ist winzig** (großer/4K-Bildschirm): führe
-  `~/cubeworld-omega-linux/install.sh --dpi 192` aus
+  `~/Games/cubeworld-omega-linux/install.sh --dpi 192` aus
 - **„git: command not found“ / „Befehl nicht gefunden“**: installiere git (z. B.
   `sudo apt install git`, `sudo pacman -S git` oder `sudo dnf install git`) und wiederhole Schritt 2.
 - **Alles andere**: [Issue öffnen](https://github.com/GammelSami/cubeworld-omega-linux/issues)
@@ -36,9 +40,9 @@ Dann auf **Play** klicken.
 
 ## Aktualisieren oder deinstallieren
 
-- Skripte aktualisieren: `git -C ~/cubeworld-omega-linux pull`
+- Skripte aktualisieren: `git -C ~/Games/cubeworld-omega-linux pull`
   (das Spiel selbst aktualisiert sich im Launcher)
-- Alles deinstallieren: `~/cubeworld-omega-linux/uninstall.sh`
+- Alles deinstallieren: `~/Games/cubeworld-omega-linux/uninstall.sh`
 
 ## Was macht das?
 

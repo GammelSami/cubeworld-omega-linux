@@ -13,7 +13,7 @@ Leave it in your **Downloads** folder.
 **2.** Open a **terminal**, paste this line and press **Enter**:
 
 ```sh
-git clone https://github.com/GammelSami/cubeworld-omega-linux ~/cubeworld-omega-linux && ~/cubeworld-omega-linux/install.sh
+git clone https://github.com/GammelSami/cubeworld-omega-linux ~/Games/cubeworld-omega-linux && ~/Games/cubeworld-omega-linux/install.sh
 ```
 
 The first time takes a few minutes. Just wait.
@@ -23,12 +23,16 @@ Then press **Play**.
 
 **Done!** Next time, start **Cube World Omega** from your app menu.
 
-> Don't move or delete the `cubeworld-omega-linux` folder in your home folder. The game needs it.
+> This puts the scripts in `Games/cubeworld-omega-linux` in your home folder and the game in
+> `Games/CubeWorldOmega`. Don't move or delete these folders. The game needs them.
 
 ## Problems?
 
+- **"Setup.exe was not found"** (the launcher is not in your Downloads folder): type
+  `~/Games/cubeworld-omega-linux/install.sh ` (with a space at the end), drag the
+  `Wollay-Launcher-…-Setup.exe` file into the terminal window and press **Enter**.
 - **Launcher window is very small** (big/4K screen): run
-  `~/cubeworld-omega-linux/install.sh --dpi 192`
+  `~/Games/cubeworld-omega-linux/install.sh --dpi 192`
 - **"git: command not found"**: install git (e.g. `sudo apt install git`, `sudo pacman -S git`
   or `sudo dnf install git`) and try step 2 again.
 - **Anything else**: [open an issue](https://github.com/GammelSami/cubeworld-omega-linux/issues)
@@ -36,9 +40,9 @@ Then press **Play**.
 
 ## Update or uninstall
 
-- Update these scripts: `git -C ~/cubeworld-omega-linux pull`
+- Update these scripts: `git -C ~/Games/cubeworld-omega-linux pull`
   (the game itself updates in the launcher)
-- Uninstall everything: `~/cubeworld-omega-linux/uninstall.sh`
+- Uninstall everything: `~/Games/cubeworld-omega-linux/uninstall.sh`
 
 ## What does it do?
 
