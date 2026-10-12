@@ -30,14 +30,17 @@ if [ "${CWO_PROXY:-1}" = 1 ]; then
     export NO_PROXY="localhost,127.0.0.1,ipc.localhost"
 fi
 
-: >"$CWO_HOME/launcher.log"
-for attempt in 1 2 3 4 5; do
+LOG="$CWO_HOME/launcher.log"
+: >"$LOG"
+for attempt in $(seq 10); do
     start=$SECONDS
-    "${UMU[@]}" "$CWO_LAUNCHER_EXE" "$@" >>"$CWO_HOME/launcher.log" 2>&1 || true
-    # The launcher sometimes crashes right at start (page fault in ole32 from its
-    # drag-and-drop handling on WebView2 windows). Starting it again helps.
-    if [ $((SECONDS - start)) -lt 60 ] && tail -n 300 "$CWO_HOME/launcher.log" | grep -q 'Unhandled exception: page fault'; then
-        echo "== launcher crashed on start, retrying ($attempt) ==" >>"$CWO_HOME/launcher.log"
+    logpos=$(stat -c %s "$LOG")
+    "${UMU[@]}" "$CWO_LAUNCHER_EXE" "$@" >>"$LOG" 2>&1 || true
+    # The launcher sometimes crashes right at start: its drag-and-drop setup calls
+    # RevokeDragDrop on WebView2 windows owned by another process, and Wine's
+    # ole32 then releases a pointer from that process. Starting it again helps.
+    if [ $((SECONDS - start)) -lt 60 ] && tail -c +$((logpos + 1)) "$LOG" | grep -qE 'Unhandled (exception: )?page fault'; then
+        echo "== launcher crashed on start, retrying ($attempt) ==" >>"$LOG"
         continue
     fi
     break
