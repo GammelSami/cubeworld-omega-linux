@@ -3,7 +3,8 @@
 # menu of the app menu entry.
 set -uo pipefail
 REPO="$(cd "$(dirname "$(readlink -f "$0")")" && pwd)"
-. "$REPO/scripts/common.sh"
+# Self-contained on purpose: the other scripts change underneath us.
+notify() { notify-send "Cube World Omega" "$*" >/dev/null 2>&1 || true; }
 
 fail() {
     echo "Update failed: $*"

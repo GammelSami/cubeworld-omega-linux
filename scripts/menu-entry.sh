@@ -5,7 +5,7 @@ set -euo pipefail
 REPO="$(cd "$(dirname "$(readlink -f "$0")")/.." && pwd)"
 . "$REPO/scripts/common.sh"
 
-ICON="$(find "$WINEPREFIX/drive_c/proton_shortcuts" -name '*wollay*.png' 2>/dev/null | sort | tail -1)"
+ICON="$(find "$WINEPREFIX/drive_c/proton_shortcuts" -name '*wollay*.png' 2>/dev/null | sort | tail -1 || true)"
 DIR="${XDG_DATA_HOME:-$HOME/.local/share}/applications"
 mkdir -p "$DIR"
 cat >"$DIR/cubeworld-omega.desktop.tmp" <<EOF
