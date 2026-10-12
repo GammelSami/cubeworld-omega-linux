@@ -10,6 +10,7 @@ GE-Proton 11-7, Wollay launcher 0.4.8, beta release `gh-38058447609-1-ff3bbe12`.
 | `install.sh` | Finds the setup in `~/Downloads`, installs dependencies, runs the setup silently (`/S`, it also installs WebView2) in a new prefix, sets up proxy CA and colour fix, creates the menu entry, starts the launcher. |
 | `launch.sh` | Starts the proxy and the launcher; restarts the launcher if it crashes on start. Logs every start to `$CWO_HOME/logs/<date>/`. |
 | `report.sh` | Bundles system details and the logs of the last 3 starts into one text file in the Downloads folder, with tokens, user ids, e-mail addresses and the home path removed. Also in the right-click menu of the app menu entry. |
+| `scripts/menu-entry.sh` | Writes the app menu entry. Also run on every start, so changes to it arrive with `git pull`. |
 | `scripts/sysinfo.sh` | System details for bug reports: distro, GPU/driver, desktop, scaling, mouse settings, Proton/launcher/game versions. |
 | `scripts/install-deps.sh` | Uses system `umu-run`/`mitmdump` if present, otherwise downloads umu (zipapp) and installs mitmproxy with [uv](https://github.com/astral-sh/uv) into `~/.local/share/cubeworld-omega-linux`. No root needed. |
 | `scripts/trust-proxy-ca.sh` | Creates the proxy CA and adds it to the prefix's `HKLM\…\SystemCertificates\Root`. |

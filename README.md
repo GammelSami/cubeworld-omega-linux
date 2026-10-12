@@ -44,9 +44,14 @@ wollay.com in your browser and sign in again.
 
 ## Update or uninstall
 
-- Update these scripts: `git -C ~/Games/cubeworld-omega-linux pull`
-  (the game itself updates in the launcher)
-- Uninstall everything: `~/Games/cubeworld-omega-linux/uninstall.sh`
+**Update:** when there are new fixes here, paste this into a terminal and press **Enter**
+(the game itself updates in the launcher):
+
+```sh
+git -C ~/Games/cubeworld-omega-linux pull
+```
+
+**Uninstall everything:** `~/Games/cubeworld-omega-linux/uninstall.sh`
 
 ## What does it do?
 

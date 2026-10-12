@@ -44,9 +44,14 @@ wollay.com und melde dich noch einmal an.
 
 ## Aktualisieren oder deinstallieren
 
-- Skripte aktualisieren: `git -C ~/Games/cubeworld-omega-linux pull`
-  (das Spiel selbst aktualisiert sich im Launcher)
-- Alles deinstallieren: `~/Games/cubeworld-omega-linux/uninstall.sh`
+**Aktualisieren:** Wenn es hier neue Fixes gibt, füge das in ein Terminal ein und drücke
+**Enter** (das Spiel selbst aktualisiert sich im Launcher):
+
+```sh
+git -C ~/Games/cubeworld-omega-linux pull
+```
+
+**Alles deinstallieren:** `~/Games/cubeworld-omega-linux/uninstall.sh`
 
 ## Was macht das?
 

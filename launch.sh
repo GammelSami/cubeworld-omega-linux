@@ -14,6 +14,8 @@ if pgrep -f 'wollay-launcher\.exe' >/dev/null; then
     exit 0
 fi
 
+"$REPO/scripts/menu-entry.sh" || true
+
 # Every start gets its own log folder; report.sh bundles the newest ones.
 SESSION="$CWO_LOGS/$(date +%Y-%m-%d_%H-%M-%S)"
 mkdir -p "$SESSION"

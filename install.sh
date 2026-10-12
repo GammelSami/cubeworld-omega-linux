@@ -99,24 +99,7 @@ echo "==> Setting up the colour fix"
 "$REPO/vkswapfix/build.sh"
 
 echo "==> Creating menu entry"
-ICON="$(find "$WINEPREFIX/drive_c/proton_shortcuts" -name '*wollay*.png' 2>/dev/null | sort | tail -1)"
-mkdir -p "$HOME/.local/share/applications"
-cat >"$HOME/.local/share/applications/cubeworld-omega.desktop" <<EOF
-[Desktop Entry]
-Type=Application
-Name=Cube World Omega
-Comment=Wollay Launcher
-Exec=env CWO_HOME="$CWO_HOME" "$REPO/launch.sh"
-Icon=${ICON:-applications-games}
-Categories=Game;
-StartupWMClass=wollay-launcher.exe
-Actions=report;
-
-[Desktop Action report]
-Name=Create bug report
-Name[de]=Fehlerbericht erstellen
-Exec=env CWO_HOME="$CWO_HOME" "$REPO/report.sh"
-EOF
+"$REPO/scripts/menu-entry.sh"
 
 echo
 echo "Done! From now on, start the game with \"Cube World Omega\" in your app menu."
