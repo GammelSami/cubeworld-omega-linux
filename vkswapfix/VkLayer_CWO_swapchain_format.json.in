@@ -1,0 +1,18 @@
+{
+    "file_format_version": "1.0.0",
+    "layer": {
+        "name": "VK_LAYER_CWO_swapchain_format",
+        "type": "GLOBAL",
+        "library_path": "@LIB@",
+        "api_version": "1.3.0",
+        "implementation_version": "1",
+        "description": "Cube World Omega: use a BGRA swapchain when the surface does not offer RGBA",
+        "functions": {
+            "vkNegotiateLoaderLayerInterfaceVersion": "CWO_NegotiateLoaderLayerInterfaceVersion",
+            "vkGetInstanceProcAddr": "CWO_GetInstanceProcAddr",
+            "vkGetDeviceProcAddr": "CWO_GetDeviceProcAddr"
+        },
+        "enable_environment": { "CWO_VK_SWAPFIX": "1" },
+        "disable_environment": { "CWO_VK_SWAPFIX_DISABLE": "1" }
+    }
+}
