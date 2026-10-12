@@ -17,7 +17,12 @@ Exec=env CWO_HOME="$CWO_HOME" "$REPO/launch.sh"
 Icon=${ICON:-applications-games}
 Categories=Game;
 StartupWMClass=wollay-launcher.exe
-Actions=report;
+Actions=update;report;
+
+[Desktop Action update]
+Name=Update Linux fixes
+Name[de]=Linux-Fixes aktualisieren
+Exec=env CWO_HOME="$CWO_HOME" "$REPO/update.sh"
 
 [Desktop Action report]
 Name=Create bug report

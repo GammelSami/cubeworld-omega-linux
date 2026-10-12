@@ -14,8 +14,9 @@ if ${CC:-cc} -O2 -Wall -Wextra -shared -fPIC -fvisibility=hidden ${VULKAN_INCLUD
     mv "$LIB.tmp" "$LIB"
     echo "Built $LIB"
 else
-    rm -f "$LIB.tmp"
-    cp prebuilt/libVkLayer_CWO_swapchain_format.so "$LIB"
+    # Replace, don't overwrite: a running game may have the library loaded.
+    cp prebuilt/libVkLayer_CWO_swapchain_format.so "$LIB.tmp"
+    mv "$LIB.tmp" "$LIB"
     echo "Installed prebuilt $LIB"
 fi
 sed "s|@LIB@|$LIB|" VkLayer_CWO_swapchain_format.json.in >"$LAYERDIR/VkLayer_CWO_swapchain_format.json"
