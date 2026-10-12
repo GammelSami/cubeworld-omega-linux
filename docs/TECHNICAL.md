@@ -8,7 +8,9 @@ GE-Proton 11-7, Wollay launcher 0.4.8, beta release `gh-38058447609-1-ff3bbe12`.
 | File | Purpose |
 | --- | --- |
 | `install.sh` | Finds the setup in `~/Downloads`, installs dependencies, runs the setup silently (`/S`, it also installs WebView2) in a new prefix, sets up proxy CA and colour fix, creates the menu entry, starts the launcher. |
-| `launch.sh` | Starts the proxy and the launcher; restarts the launcher if it crashes on start. |
+| `launch.sh` | Starts the proxy and the launcher; restarts the launcher if it crashes on start. Logs every start to `$CWO_HOME/logs/<date>/`. |
+| `report.sh` | Bundles system details and the logs of the last 3 starts into one text file in the Downloads folder, with tokens, user ids, e-mail addresses and the home path removed. Also in the right-click menu of the app menu entry. |
+| `scripts/sysinfo.sh` | System details for bug reports: distro, GPU/driver, desktop, scaling, mouse settings, Proton/launcher/game versions. |
 | `scripts/install-deps.sh` | Uses system `umu-run`/`mitmdump` if present, otherwise downloads umu (zipapp) and installs mitmproxy with [uv](https://github.com/astral-sh/uv) into `~/.local/share/cubeworld-omega-linux`. No root needed. |
 | `scripts/trust-proxy-ca.sh` | Creates the proxy CA and adds it to the prefix's `HKLM\…\SystemCertificates\Root`. |
 | `proxy/wollay_addon.py` | mitmproxy addon: prefetch, streaming, chunk rescue. |
@@ -16,9 +18,14 @@ GE-Proton 11-7, Wollay launcher 0.4.8, beta release `gh-38058447609-1-ff3bbe12`.
 
 Settings (environment variables): `CWO_HOME` (default `~/Games/CubeWorldOmega`), `PROTONPATH`
 (default `GE-Proton`, stored in `$CWO_HOME/env` on first install), `CWO_PROXY=0` (no proxy),
-`CWO_VK_SWAPFIX=0` (no colour fix), `CWO_VK_SWAPFIX_DEBUG=1`.
+`CWO_VK_SWAPFIX=0` (no colour fix), `CWO_DEBUG=0` (less logging, see below), `CWO_KEEP_LOGS`
+(default 10).
 
-Logs: `$CWO_HOME/launcher.log`, `$CWO_HOME/proxy.log`.
+Logs: one folder per start in `$CWO_HOME/logs/` (the newest 10 are kept) with `launcher.log`
+(Wine/Proton output), `proxy.log`, `system.txt` and `client.log` (the game's own log, copied when
+the launcher exits). `$CWO_HOME/launcher.log` and `proxy.log` point to the newest ones. During the
+beta `CWO_DEBUG=1` is the default: Wine's error messages (Proton turns them off) and the colour
+fix's messages are logged (`WINEDEBUG=+timestamp,+pid,fixme-all`, `CWO_VK_SWAPFIX_DEBUG=1`).
 
 ## Problems and workarounds
 

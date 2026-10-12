@@ -36,8 +36,11 @@ wollay.com und melde dich noch einmal an.
   `~/Games/cubeworld-omega-linux/install.sh --dpi 192` aus
 - **„git: command not found“ / „Befehl nicht gefunden“**: installiere git (z. B.
   `sudo apt install git`, `sudo pacman -S git` oder `sudo dnf install git`) und wiederhole Schritt 2.
-- **Alles andere**: [Issue öffnen](https://github.com/GammelSami/cubeworld-omega-linux/issues)
-  und `~/Games/CubeWorldOmega/launcher.log` und `~/Games/CubeWorldOmega/proxy.log` anhängen.
+- **Alles andere**: Klicke im App-Menü mit der rechten Maustaste auf **Cube World Omega** und
+  wähle **Fehlerbericht erstellen** (oder führe `~/Games/cubeworld-omega-linux/report.sh` aus).
+  Das speichert eine Datei in deinem Downloads-Ordner, ohne deine Anmeldedaten.
+  [Issue öffnen](https://github.com/GammelSami/cubeworld-omega-linux/issues), schreiben, was
+  passiert ist, und die Datei anhängen.
 
 ## Aktualisieren oder deinstallieren
 

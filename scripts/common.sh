@@ -15,6 +15,11 @@ export PROTON_ENABLE_WAYLAND=0
 # Enables VK_LAYER_CWO_swapchain_format (vkswapfix/) if installed: fixes swapped red/blue.
 export CWO_VK_SWAPFIX="${CWO_VK_SWAPFIX:-1}"
 
+# Extra logging, on by default during the beta. Turn off with CWO_DEBUG=0 in $CWO_HOME/env.
+CWO_DEBUG="${CWO_DEBUG:-1}"
+CWO_LOGS="$CWO_HOME/logs"
+CWO_KEEP_LOGS="${CWO_KEEP_LOGS:-10}"
+
 CWO_PROXY_PORT="${CWO_PROXY_PORT:-8899}"
 CWO_MITM_DIR="$CWO_HOME/mitmproxy"
 CWO_LOCALAPPDATA="$WINEPREFIX/drive_c/users/steamuser/AppData/Local"
@@ -24,6 +29,8 @@ CWO_DATA_DIR="$CWO_LOCALAPPDATA/com.wollay.launcher"
 CWO_TOOLS="${CWO_TOOLS:-${XDG_DATA_HOME:-$HOME/.local/share}/cubeworld-omega-linux}"
 
 die() { echo "error: $*" >&2; exit 1; }
+# Desktop notification, for scripts started from the app menu.
+notify() { notify-send "Cube World Omega" "$*" >/dev/null 2>&1 || true; }
 
 # Sets UMU (array) to a working umu-run command.
 find_umu() {

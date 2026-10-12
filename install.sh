@@ -110,6 +110,12 @@ Exec=env CWO_HOME="$CWO_HOME" "$REPO/launch.sh"
 Icon=${ICON:-applications-games}
 Categories=Game;
 StartupWMClass=wollay-launcher.exe
+Actions=report;
+
+[Desktop Action report]
+Name=Create bug report
+Name[de]=Fehlerbericht erstellen
+Exec=env CWO_HOME="$CWO_HOME" "$REPO/report.sh"
 EOF
 
 echo
