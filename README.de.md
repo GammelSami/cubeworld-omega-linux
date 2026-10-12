@@ -47,7 +47,7 @@ Es installiert den Windows-Launcher mit Proton (über [umu](https://github.com/O
 in `~/Games/CubeWorldOmega` und behebt drei Dinge, die unter Wine nicht funktionieren:
 
 - **Downloads bleiben hängen.** Ein kleiner lokaler Proxy lädt die Spieldateien für den Launcher.
-  Nur Verbindungen zu wollay.com laufen darüber. Dafür wird ein eigenes Zertifikat **nur im
+  Nur Verbindungen zu wollay.com und den Google-Anmeldediensten, die er nutzt, laufen darüber. Dafür wird ein eigenes Zertifikat **nur im
   Wine-Ordner des Spiels** vertraut, nicht von deinem System oder Browser.
 - **Rot und Blau sind im Spiel vertauscht.** Ein kleiner Vulkan-Layer korrigiert die Farben.
   Er ist nur für dieses Spiel aktiv.

@@ -94,12 +94,11 @@ class WollayAddon:
             self.prefetch_task = asyncio.ensure_future(
                 asyncio.to_thread(self.prefetch, flow.request.method, flow.request.path, headers, flow.request.content)
             )
-        try:
-            await asyncio.wait_for(asyncio.shield(self.prefetch_task), ctx.options.cwo_prefetch_hold)
-        except asyncio.TimeoutError:
+        done, _ = await asyncio.wait({self.prefetch_task}, timeout=ctx.options.cwo_prefetch_hold)
+        if not done:
             log.warning("prefetch still running, letting the launcher's update check through")
-        except Exception as e:
-            log.warning(f"prefetch failed: {e!r}")
+        elif self.prefetch_task.exception():
+            log.warning(f"prefetch failed: {self.prefetch_task.exception()!r}")
 
     def responseheaders(self, flow: http.HTTPFlow):
         path = flow.request.path.split("?", 1)[0]

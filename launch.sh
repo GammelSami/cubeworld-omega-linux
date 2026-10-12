@@ -13,6 +13,7 @@ if [ "${CWO_PROXY:-1}" = 1 ]; then
     "$MITMDUMP" --listen-host 127.0.0.1 --listen-port "$CWO_PROXY_PORT" \
         --set confdir="$CWO_MITM_DIR" \
         --allow-hosts '(^|\.)wollay\.com(:443)?$' \
+        --allow-hosts '^(firestore|identitytoolkit|securetoken)\.googleapis\.com(:443)?$' \
         --set cwo_data_dir="$CWO_DATA_DIR" \
         -s "$REPO/proxy/wollay_addon.py" \
         ${CWO_PROXY_OPTS:-} \
